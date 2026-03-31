@@ -1437,16 +1437,251 @@
             margin-bottom: 0.25rem;
         }
 
-        .login-form input[type="email"] {
+        .login-form input[type="email"],
+        .login-form input[type="text"],
+        .login-form input[type="tel"],
+        .login-form input[type="password"],
+        .login-form select {
             padding: 0.875rem;
             border: 2px solid var(--light-gray);
             border-radius: 6px;
             font-size: 1rem;
+            width: 100%;
+            background-color: var(--white);
+            color: var(--dark-gray);
+            font-family: inherit;
         }
 
-        .login-form input[type="email"]:focus {
+        .login-form input:focus,
+        .login-form select:focus {
             border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(0, 152, 219, 0.1);
+            outline: none;
+        }
+
+        .login-form select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239AA0A6' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.875rem center;
+            padding-right: 2.5rem;
+        }
+
+        .login-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .login-tab {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--medium-gray);
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .login-tab:hover {
+            color: var(--primary);
+        }
+
+        .login-tab.active {
+            color: var(--accent);
+        }
+
+        .login-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .login-tab-content {
+            display: none;
+        }
+
+        .login-tab-content.active {
+            display: block;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .form-row > div {
+            flex: 1;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            padding: 0.25rem;
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        .password-strength {
+            height: 4px;
+            border-radius: 2px;
+            background-color: var(--light-gray);
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+
+        .password-strength-text {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            color: var(--medium-gray);
+        }
+
+        .login-success {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: none;
+            margin-bottom: 1rem;
+        }
+
+        .login-success.show {
+            display: block;
+        }
+
+        .login-card {
+            max-width: 480px;
+        }
+
+        .login-divider {
+            text-align: center;
+            margin: 1rem 0;
+            color: var(--medium-gray);
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        .login-divider::before,
+        .login-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: var(--light-gray);
+        }
+
+        .login-divider::before { left: 0; }
+        .login-divider::after { right: 0; }
+
+        /* Profile Modal */
+        .profile-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-section h4 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .profile-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .profile-info-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-info-item span {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .profile-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .profile-form label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .profile-form input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .profile-form input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 152, 219, 0.1);
+            outline: none;
+        }
+
+        .profile-message {
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: none;
+            margin-bottom: 1rem;
+        }
+
+        .profile-message.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+            display: block;
+        }
+
+        .profile-message.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+            display: block;
         }
 
         .login-error {
@@ -1814,7 +2049,8 @@
                             <div class="user-role" id="training-user-role">FS Engineer</div>
                         </div>
                     </div>
-                    <button class="btn" onclick="handleLogout()" style="margin-left: 0.75rem; padding: 0.4rem 0.75rem; font-size: 0.8rem; background: transparent; color: var(--medium-gray); border: 1px solid var(--light-gray);">Logout</button>
+                    <button class="btn" onclick="openProfileModal()" style="margin-left: 0.75rem; padding: 0.4rem 0.75rem; font-size: 0.8rem; background: transparent; color: var(--accent); border: 1px solid var(--accent);">My Profile</button>
+                    <button class="btn" onclick="handleLogout()" style="margin-left: 0.5rem; padding: 0.4rem 0.75rem; font-size: 0.8rem; background: transparent; color: var(--medium-gray); border: 1px solid var(--light-gray);">Logout</button>
                 </div>
             </div>
 
@@ -1824,8 +2060,8 @@
                 <!-- DASHBOARD VIEW -->
                 <div id="dashboard-view" class="view active">
                     <div class="welcome-banner">
-                        <h1 class="welcome-title">Welcome to Revita 3.0 Tech Training!</h1>
-                        <p class="welcome-subtitle"> Tier 1 Service Certification</p>
+                        <h1 class="welcome-title">Welcome to Revita Training</h1>
+                        <p class="welcome-subtitle">Master Tier 1 Service Certification</p>
                         <p class="welcome-audience">📋 For FS Engineers, Hospital Biomeds, Account Managers & BDMs</p>
                     </div>
 
@@ -1890,20 +2126,117 @@
                 <h2 class="login-title">Fractyl Health</h2>
                 <p class="login-subtitle">Revita Console 3.0 Service Training</p>
             </div>
-            
-            <div class="login-invite-message" id="login-invite-msg">
-                You've been invited to complete Revita Console 3.0 Service Training
+
+            <!-- Tabs -->
+            <div class="login-tabs">
+                <button class="login-tab active" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="login-tab" onclick="switchAuthTab('register')">Register</button>
             </div>
-            
-            <div class="login-error" id="login-error"></div>
-            
-            <form class="login-form" onsubmit="handleLogin(event)">
-                <div>
-                    <label for="login-email">Email Address</label>
-                    <input type="email" id="login-email" placeholder="you@example.com" required autofocus>
+
+            <!-- ===== SIGN IN TAB ===== -->
+            <div id="auth-login-tab" class="login-tab-content active">
+                <div class="login-invite-message" id="login-invite-msg">
+                    You've been invited to complete Revita Console 3.0 Service Training
                 </div>
-                <button type="submit" class="login-btn">Sign In</button>
-            </form>
+                <div class="login-error" id="login-error"></div>
+
+                <form class="login-form" onsubmit="handleLogin(event)">
+                    <div>
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" placeholder="you@example.com" required autofocus>
+                    </div>
+                    <div>
+                        <label for="login-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="login-password" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" onclick="togglePasswordVis('login-password', this)">👁</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn">Sign In</button>
+                </form>
+            </div>
+
+            <!-- ===== REGISTER TAB ===== -->
+            <div id="auth-register-tab" class="login-tab-content">
+                <div class="login-success" id="register-success"></div>
+                <div class="login-error" id="register-error"></div>
+
+                <form class="login-form" onsubmit="handleRegister(event)">
+                    <div class="form-row">
+                        <div>
+                            <label for="reg-first-name">First Name</label>
+                            <input type="text" id="reg-first-name" placeholder="First" required>
+                        </div>
+                        <div>
+                            <label for="reg-last-name">Last Name</label>
+                            <input type="text" id="reg-last-name" placeholder="Last" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="reg-email">Email Address</label>
+                        <input type="email" id="reg-email" placeholder="you@example.com" required>
+                    </div>
+                    <div>
+                        <label for="reg-phone">Phone Number</label>
+                        <input type="tel" id="reg-phone" placeholder="(555) 123-4567" required>
+                    </div>
+                    <div>
+                        <label for="reg-org">Organization</label>
+                        <select id="reg-org" required>
+                            <option value="">Select your organization...</option>
+                            <option value="Fractyl Health">Fractyl Health</option>
+                            <option value="Mayo Clinic">Mayo Clinic</option>
+                            <option value="Cleveland Clinic">Cleveland Clinic</option>
+                            <option value="Massachusetts General Hospital">Massachusetts General Hospital</option>
+                            <option value="Johns Hopkins Hospital">Johns Hopkins Hospital</option>
+                            <option value="Houston Methodist">Houston Methodist</option>
+                            <option value="UCSF Medical Center">UCSF Medical Center</option>
+                            <option value="Cedars-Sinai Medical Center">Cedars-Sinai Medical Center</option>
+                            <option value="Mount Sinai Hospital">Mount Sinai Hospital</option>
+                            <option value="NYU Langone Health">NYU Langone Health</option>
+                            <option value="Duke University Hospital">Duke University Hospital</option>
+                            <option value="Stanford Health Care">Stanford Health Care</option>
+                            <option value="Northwestern Memorial Hospital">Northwestern Memorial Hospital</option>
+                            <option value="University of Michigan Health">University of Michigan Health</option>
+                            <option value="Emory University Hospital">Emory University Hospital</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div id="reg-org-other-wrapper" style="display: none;">
+                        <label for="reg-org-other">Organization Name</label>
+                        <input type="text" id="reg-org-other" placeholder="Enter your organization name">
+                    </div>
+                    <div>
+                        <label for="reg-role">Role</label>
+                        <select id="reg-role" required>
+                            <option value="">Select your role...</option>
+                            <option value="FS Engineer">FS Engineer</option>
+                            <option value="Hospital Biomed">Hospital Biomed</option>
+                            <option value="Account Manager">Account Manager</option>
+                            <option value="BDM">BDM</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="reg-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="reg-password" placeholder="Create a password (min. 8 characters)" required minlength="8" oninput="updatePasswordStrength(this.value)">
+                            <button type="button" class="password-toggle" onclick="togglePasswordVis('reg-password', this)">👁</button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="password-strength-bar"></div>
+                        </div>
+                        <div class="password-strength-text" id="password-strength-text"></div>
+                    </div>
+                    <div>
+                        <label for="reg-confirm-password">Confirm Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="reg-confirm-password" placeholder="Confirm your password" required minlength="8">
+                            <button type="button" class="password-toggle" onclick="togglePasswordVis('reg-confirm-password', this)">👁</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn">Create Account</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -2159,6 +2492,69 @@
         </div>
     </div>
 
+    <!-- PROFILE / CHANGE PASSWORD MODAL -->
+    <div class="modal-overlay" id="profile-modal">
+        <div class="modal-content" style="max-width: 520px;">
+            <div class="modal-header">
+                <h2 class="modal-title">My Profile</h2>
+                <button class="modal-close" onclick="closeProfileModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="profile-message" class="profile-message"></div>
+
+                <!-- Account Info -->
+                <div class="profile-section">
+                    <h4>Account Information</h4>
+                    <div class="profile-info-grid">
+                        <div class="profile-info-item">
+                            <label>Name</label>
+                            <span id="profile-name">—</span>
+                        </div>
+                        <div class="profile-info-item">
+                            <label>Email</label>
+                            <span id="profile-email">—</span>
+                        </div>
+                        <div class="profile-info-item">
+                            <label>Organization</label>
+                            <span id="profile-org">—</span>
+                        </div>
+                        <div class="profile-info-item">
+                            <label>Role</label>
+                            <span id="profile-role">—</span>
+                        </div>
+                        <div class="profile-info-item">
+                            <label>Phone</label>
+                            <span id="profile-phone">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Change Password -->
+                <div class="profile-section">
+                    <h4>Change Password</h4>
+                    <div class="profile-form">
+                        <div class="form-group">
+                            <label for="profile-current-pw">Current Password</label>
+                            <input type="password" id="profile-current-pw" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-new-pw">New Password</label>
+                            <input type="password" id="profile-new-pw" placeholder="Min. 8 characters" minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-confirm-pw">Confirm New Password</label>
+                            <input type="password" id="profile-confirm-pw" placeholder="Confirm new password" minlength="8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeProfileModal()">Close</button>
+                <button class="btn btn-primary" onclick="handleChangePassword()">Update Password</button>
+            </div>
+        </div>
+    </div>
+
     <script>
 
         // ============================================
@@ -2176,7 +2572,7 @@
         // ============================================
         // This URL is used for invite links sent to new users.
         // Update this to your SharePoint or hosted URL.
-        const DEFAULT_PLATFORM_URL = 'https://fractyl.sharepoint.com/sites/FractylManufacturing/Shared%20Documents/Service/Future%20of%20Service/FS%20Elearning%20platform/index.html';
+        const DEFAULT_PLATFORM_URL = 'https://tarekdonnelly.github.io/fs-elearning-platform/';
 
         function getPlatformUrl() {
             // Check if admin has set a custom URL
@@ -2211,28 +2607,140 @@
             return `fractyl_progress_${hash}`;
         }
 
+        // ============================================
+        // PASSWORD HASHING (simple client-side hash)
+        // ============================================
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password + 'fractyl_salt_2026');
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // ============================================
+        // AUTH TAB SWITCHING
+        // ============================================
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.login-tab-content').forEach(c => c.classList.remove('active'));
+
+            if (tab === 'login') {
+                document.querySelectorAll('.login-tab')[0].classList.add('active');
+                document.getElementById('auth-login-tab').classList.add('active');
+            } else {
+                document.querySelectorAll('.login-tab')[1].classList.add('active');
+                document.getElementById('auth-register-tab').classList.add('active');
+            }
+
+            // Clear messages
+            document.getElementById('login-error').classList.remove('show');
+            document.getElementById('register-error').classList.remove('show');
+            document.getElementById('register-success').classList.remove('show');
+        }
+
+        // ============================================
+        // PASSWORD VISIBILITY TOGGLE
+        // ============================================
+        function togglePasswordVis(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🔒';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁';
+            }
+        }
+
+        // ============================================
+        // PASSWORD STRENGTH METER
+        // ============================================
+        function updatePasswordStrength(password) {
+            const bar = document.getElementById('password-strength-bar');
+            const text = document.getElementById('password-strength-text');
+            let score = 0;
+            if (password.length >= 8) score++;
+            if (password.length >= 12) score++;
+            if (/[A-Z]/.test(password)) score++;
+            if (/[0-9]/.test(password)) score++;
+            if (/[^A-Za-z0-9]/.test(password)) score++;
+
+            const levels = [
+                { width: '0%', color: '#E8EAED', label: '' },
+                { width: '20%', color: '#F44336', label: 'Weak' },
+                { width: '40%', color: '#FF9800', label: 'Fair' },
+                { width: '60%', color: '#FFC107', label: 'Good' },
+                { width: '80%', color: '#8BC34A', label: 'Strong' },
+                { width: '100%', color: '#4CAF50', label: 'Very Strong' }
+            ];
+
+            const level = levels[score];
+            bar.style.width = level.width;
+            bar.style.backgroundColor = level.color;
+            text.textContent = level.label;
+            text.style.color = level.color;
+        }
+
+        // ============================================
+        // ORGANIZATION "OTHER" TOGGLE
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const orgSelect = document.getElementById('reg-org');
+            if (orgSelect) {
+                orgSelect.addEventListener('change', function() {
+                    const otherWrapper = document.getElementById('reg-org-other-wrapper');
+                    if (this.value === 'Other') {
+                        otherWrapper.style.display = 'block';
+                        document.getElementById('reg-org-other').required = true;
+                    } else {
+                        otherWrapper.style.display = 'none';
+                        document.getElementById('reg-org-other').required = false;
+                    }
+                });
+            }
+        });
+
+        // ============================================
+        // PHONE FORMATTING
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('reg-phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').substring(0, 10);
+                    let formatted = '';
+                    if (x.length > 0) formatted = '(' + x.substring(0, 3);
+                    if (x.length >= 3) formatted += ') ' + x.substring(3, 6);
+                    if (x.length >= 6) formatted += '-' + x.substring(6, 10);
+                    e.target.value = formatted;
+                });
+            }
+        });
+
         // Initialize user system
         function initUserSystem() {
             const urlParams = new URLSearchParams(window.location.search);
             const inviteEmail = urlParams.get('invite');
-            
+
             // Check if user is already logged in
             const sessionData = sessionStorage.getItem('fractyl_session');
-            
+
             if (sessionData) {
                 const session = JSON.parse(sessionData);
                 currentUser = session;
                 isAdminMode = currentUser.email === ADMIN_EMAIL;
                 loadAllUsers();
-                
+
                 if (isAdminMode) {
                     showAdminPanel();
                 } else {
                     showTrainingPanel();
                 }
             } else if (inviteEmail) {
-                // Pre-fill login with invite email
-                document.getElementById('login-email').value = inviteEmail;
+                // Pre-fill register with invite email
+                switchAuthTab('register');
+                document.getElementById('reg-email').value = inviteEmail;
                 document.getElementById('login-invite-msg').classList.add('show');
                 document.getElementById('login-overlay').classList.remove('hidden');
             } else {
@@ -2242,58 +2750,252 @@
         }
 
         // Handle login
-        function handleLogin(event) {
+        async function handleLogin(event) {
             event.preventDefault();
             const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
             const errorDiv = document.getElementById('login-error');
-            
+
             errorDiv.classList.remove('show');
-            
+
             // Load all users
             loadAllUsers();
-            
-            // Check if email exists
-            const userExists = allUsers.some(u => u.email.toLowerCase() === email.toLowerCase());
-            
-            if (!userExists && email !== ADMIN_EMAIL) {
-                errorDiv.textContent = 'Account not found. Please contact your administrator.';
-                errorDiv.classList.add('show');
-                return;
-            }
-            
-            // Admin login requires password
-            if (email === ADMIN_EMAIL) {
-                const password = prompt('Enter admin password:');
+
+            // Admin login
+            if (email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
                 if (password !== ADMIN_PASSWORD) {
-                    errorDiv.textContent = 'Invalid admin password.';
+                    errorDiv.textContent = 'Invalid email or password.';
                     errorDiv.classList.add('show');
                     return;
                 }
-                
+
                 currentUser = {
                     email: ADMIN_EMAIL,
                     name: 'Tarek Donnelly',
                     role: 'Admin',
+                    organization: 'Fractyl Health',
                     status: 'active'
                 };
                 isAdminMode = true;
             } else {
-                // Regular user login
-                currentUser = allUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
+                // Find user
+                const user = allUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
+
+                if (!user) {
+                    errorDiv.textContent = 'Account not found. Please register first.';
+                    errorDiv.classList.add('show');
+                    return;
+                }
+
+                // Check password
+                const hashedInput = await hashPassword(password);
+                if (user.passwordHash !== hashedInput) {
+                    errorDiv.textContent = 'Invalid email or password.';
+                    errorDiv.classList.add('show');
+                    return;
+                }
+
+                currentUser = user;
                 isAdminMode = false;
             }
-            
+
             // Store session
             sessionStorage.setItem('fractyl_session', JSON.stringify(currentUser));
-            
+
             // Hide login, show appropriate panel
             document.getElementById('login-overlay').classList.add('hidden');
-            
+
             if (isAdminMode) {
                 showAdminPanel();
             } else {
                 showTrainingPanel();
             }
+        }
+
+        // ============================================
+        // HANDLE REGISTRATION
+        // ============================================
+        async function handleRegister(event) {
+            event.preventDefault();
+            const errorDiv = document.getElementById('register-error');
+            const successDiv = document.getElementById('register-success');
+            errorDiv.classList.remove('show');
+            successDiv.classList.remove('show');
+
+            const firstName = document.getElementById('reg-first-name').value.trim();
+            const lastName = document.getElementById('reg-last-name').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const phone = document.getElementById('reg-phone').value.trim();
+            const orgSelect = document.getElementById('reg-org').value;
+            const orgOther = document.getElementById('reg-org-other').value.trim();
+            const role = document.getElementById('reg-role').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+            // Validation
+            if (!firstName || !lastName || !email || !phone || !orgSelect || !role || !password) {
+                errorDiv.textContent = 'Please fill in all required fields.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            if (orgSelect === 'Other' && !orgOther) {
+                errorDiv.textContent = 'Please enter your organization name.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            if (password.length < 8) {
+                errorDiv.textContent = 'Password must be at least 8 characters.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorDiv.textContent = 'Passwords do not match.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            // Load users and check for duplicates
+            loadAllUsers();
+            if (allUsers.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+                errorDiv.textContent = 'An account with this email already exists. Please sign in.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            const organization = orgSelect === 'Other' ? orgOther : orgSelect;
+            const passwordHash = await hashPassword(password);
+
+            const newUser = {
+                email: email,
+                name: firstName + ' ' + lastName,
+                role: role,
+                organization: organization,
+                phone: phone,
+                passwordHash: passwordHash,
+                createdAt: new Date().toISOString(),
+                status: 'active',
+                registeredSelf: true
+            };
+
+            allUsers.push(newUser);
+            saveAllUsers();
+
+            // Show success and switch to login
+            successDiv.textContent = 'Account created successfully! You can now sign in.';
+            successDiv.classList.add('show');
+
+            // Clear form
+            event.target.reset();
+            document.getElementById('reg-org-other-wrapper').style.display = 'none';
+            document.getElementById('password-strength-bar').style.width = '0%';
+            document.getElementById('password-strength-text').textContent = '';
+
+            // Auto-switch to login after a moment
+            setTimeout(() => {
+                switchAuthTab('login');
+                document.getElementById('login-email').value = email;
+                document.getElementById('login-password').focus();
+            }, 1500);
+        }
+
+        // ============================================
+        // PROFILE MODAL
+        // ============================================
+        function openProfileModal() {
+            if (!currentUser) return;
+            document.getElementById('profile-name').textContent = currentUser.name || '—';
+            document.getElementById('profile-email').textContent = currentUser.email || '—';
+            document.getElementById('profile-org').textContent = currentUser.organization || '—';
+            document.getElementById('profile-role').textContent = currentUser.role || '—';
+            document.getElementById('profile-phone').textContent = currentUser.phone || '—';
+
+            // Clear password fields
+            document.getElementById('profile-current-pw').value = '';
+            document.getElementById('profile-new-pw').value = '';
+            document.getElementById('profile-confirm-pw').value = '';
+
+            const msg = document.getElementById('profile-message');
+            msg.className = 'profile-message';
+            msg.textContent = '';
+
+            document.getElementById('profile-modal').classList.add('active');
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profile-modal').classList.remove('active');
+        }
+
+        async function handleChangePassword() {
+            const msgDiv = document.getElementById('profile-message');
+            msgDiv.className = 'profile-message';
+            msgDiv.textContent = '';
+
+            const currentPw = document.getElementById('profile-current-pw').value;
+            const newPw = document.getElementById('profile-new-pw').value;
+            const confirmPw = document.getElementById('profile-confirm-pw').value;
+
+            if (!currentPw || !newPw || !confirmPw) {
+                msgDiv.textContent = 'Please fill in all password fields.';
+                msgDiv.className = 'profile-message error';
+                return;
+            }
+
+            if (newPw.length < 8) {
+                msgDiv.textContent = 'New password must be at least 8 characters.';
+                msgDiv.className = 'profile-message error';
+                return;
+            }
+
+            if (newPw !== confirmPw) {
+                msgDiv.textContent = 'New passwords do not match.';
+                msgDiv.className = 'profile-message error';
+                return;
+            }
+
+            // Verify current password
+            const currentHash = await hashPassword(currentPw);
+
+            // Admin uses plain text password
+            if (currentUser.email === ADMIN_EMAIL) {
+                if (currentPw !== ADMIN_PASSWORD) {
+                    msgDiv.textContent = 'Current password is incorrect.';
+                    msgDiv.className = 'profile-message error';
+                    return;
+                }
+                msgDiv.textContent = 'Admin password cannot be changed here.';
+                msgDiv.className = 'profile-message error';
+                return;
+            }
+
+            // Regular user
+            loadAllUsers();
+            const userIdx = allUsers.findIndex(u => u.email.toLowerCase() === currentUser.email.toLowerCase());
+            if (userIdx === -1) return;
+
+            if (allUsers[userIdx].passwordHash !== currentHash) {
+                msgDiv.textContent = 'Current password is incorrect.';
+                msgDiv.className = 'profile-message error';
+                return;
+            }
+
+            const newHash = await hashPassword(newPw);
+            allUsers[userIdx].passwordHash = newHash;
+            saveAllUsers();
+
+            // Update session
+            currentUser.passwordHash = newHash;
+            sessionStorage.setItem('fractyl_session', JSON.stringify(currentUser));
+
+            msgDiv.textContent = 'Password updated successfully!';
+            msgDiv.className = 'profile-message success';
+
+            // Clear fields
+            document.getElementById('profile-current-pw').value = '';
+            document.getElementById('profile-new-pw').value = '';
+            document.getElementById('profile-confirm-pw').value = '';
         }
 
         // Handle logout
@@ -2302,13 +3004,15 @@
                 sessionStorage.removeItem('fractyl_session');
                 currentUser = null;
                 isAdminMode = false;
-                
+
                 // Show login
                 document.getElementById('login-overlay').classList.remove('hidden');
+                switchAuthTab('login');
                 document.getElementById('login-email').value = '';
+                document.getElementById('login-password').value = '';
                 document.getElementById('login-error').classList.remove('show');
                 document.getElementById('login-email').focus();
-                
+
                 // Hide panels
                 document.getElementById('admin-panel').classList.remove('active');
                 document.getElementById('app').style.display = 'none';
@@ -2497,34 +3201,42 @@
         }
 
         // Save new user
-        function saveNewUser() {
+        async function saveNewUser() {
             const name = document.getElementById('user-name').value.trim();
             const email = document.getElementById('user-email').value.trim();
             const role = document.getElementById('user-role').value;
-            
+
             if (!name || !email || !role) {
                 alert('Please fill in all fields');
                 return;
             }
-            
+
             // Check if email already exists
             if (allUsers.some(u => u.email.toLowerCase() === email.toLowerCase())) {
                 alert('This email already exists');
                 return;
             }
-            
+
+            // Admin-created users get a temporary default password (Welcome1!)
+            // They'll be prompted to change it or can use the invite link to register
+            const defaultPasswordHash = await hashPassword('Welcome1!');
+
             // Create new user
             const newUser = {
                 email: email,
                 name: name,
                 role: role,
+                organization: '',
+                phone: '',
+                passwordHash: defaultPasswordHash,
                 createdAt: new Date().toISOString(),
-                status: 'active'
+                status: 'active',
+                needsPasswordReset: true
             };
-            
+
             allUsers.push(newUser);
             saveAllUsers();
-            
+
             // Show invite link
             const inviteLink = getPlatformUrl() + '?invite=' + encodeURIComponent(email);
             document.getElementById('invite-link-value').value = inviteLink;
@@ -2550,8 +3262,11 @@
 
 You've been invited to complete the Revita Console 3.0 Service Training program.
 
-Click the link below to begin:
+Click the link below to register your account and begin:
 ${inviteLink}
+
+You can also sign in with your email and the temporary password: Welcome1!
+Please change your password after your first login.
 
 If you have any questions, please contact your administrator.
 
